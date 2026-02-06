@@ -1,13 +1,26 @@
+import { Route,Routes } from 'react-router-dom'
 import './App.css'
+import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Rooms from './pages/Rooms'
+import Amenities from './pages/Amenities'
+import Experiences from './pages/Experiences'
+import Navbar from './shared/components/Navbar'
 
 const App = () => {
   return (
-    <div 
-    className=" w-auto h-auto flex items-center 
-    justify-center text-[#F78728] text-center ">
-      <img src="./favicon.svg" alt="logo" 
-      className=" w-20 h-20 "/>
-      Bisht Homestay</div>
+    <>
+      <Navbar></Navbar>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/rooms" element={<Rooms />} />
+        <Route path="/amenities" element={<Amenities />} />
+        <Route path="/experiences" element={<Experiences />} />
+      </Routes>
+    </>
   )
 }
 
