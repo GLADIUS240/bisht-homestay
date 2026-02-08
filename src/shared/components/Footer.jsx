@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div 
         className=' bg-[#F7F2EC] w-[100vw] flex flex-col pt-1 font-light
-        left-0 items-center justify-center gap-4 text-center text-base font-sans'>
+        left-0 items-center justify-center gap-4 text-center text-base font-["Cinzel"] tracking-normal leading-none'>
         <NavLink className=" h-20 w-20 overflow-hidden"
             to="/">
             <img 
@@ -75,23 +75,23 @@ const Footer = () => {
             </div>
             <hr className="bg-brand h-6 w-[1px] md:block hidden border-none" />
             <div >
-              <a href="tel:+91901298xxxx" className='flex items-center gap-2'>
+              <a href="tel:+919548702681" className='flex items-center gap-2'>
                 <PhoneCall size={16} color="#000000" strokeWidth={1} />
-                +91902345xxxx
+                +91 9548702681
               </a>
             </div>
             <hr className="bg-brand h-6 w-[1px] md:block hidden border-none" />
             <div>
-                <a href="mailto:ullarindia@gmail.com" className='flex items-center gap-2'>
+                <a href="mailto:shailendrabisht80@gmail.com" className='flex items-center gap-2'>
                   <Mail size={16} color="#000000" strokeWidth={1} />
-                  ullarindia@gmail.com</a>
+                  shailendrabisht80@gmail.com</a>
             </div>
         </span>
         <hr className="bg-brand h-[1px] lg:w-[calc(100vw-29.3vw)] w-[100vw] mx-auto border-none " />
 
         <span className='flex items-center gap-2 justify-center'>
           <MapPin className='hidden md:block' size={16} color="#000000" strokeWidth={1} />
-            <h3>Chhoro, Garampani, Almora Road, Nainital (NH-109), Uttarakhand India</h3>
+            <h3>Chhara, Garampani, Almora Road, Nainital (NH-109), Uttarakhand India</h3>
         </span>
         <span 
         className='flex md:justify-between flex-col md:flex-row bg-brand w-[100vw] text-white py-4 px-[20.65vw] items-center'>

@@ -1,7 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+   const navigate = useNavigate();
   return (
     <div className="fixed top-0 left-0 w-[100vw] h-16 flex items-center p-1
     justify-center text-brand bg-white text-center gap-[12vw] top-0 z-10">
@@ -13,10 +15,10 @@ const Navbar = () => {
                   className=" w-20 h-20 "
                   />
             </NavLink>
-<div className="font-roboto flex
+<div className="font-['Montserrat'] flex
         items-center justify-center font-normal text-sm
         gap-6 text-tracking-normal text-leading-none">
-          <div className="font-roboto hidden lg:flex
+          <div className="font-['Montserrat'] hidden lg:flex
         items-center justify-center font-normal text-sm
         gap-6 text-tracking-normal text-leading-none">
             <NavLink
@@ -70,11 +72,12 @@ const Navbar = () => {
         </div>
           <div>
             <button 
-            className="py-2 px-4 w-fit bg-accent hover:bg-brand text-white font-light ">
+            className="py-2 px-4 w-fit bg-accent cursor-pointer hover:bg-brand text-white font-light ">
             Login/Register
             </button>
             <button 
-            className="p-2 w-fit bg-secondary hover:bg-primary text-white font-light ">
+            onClick={() => navigate("/reservation")}
+            className="p-2 w-fit bg-secondary cursor-pointer hover:bg-primary text-white font-light ">
             Make a Reservation
             </button>
         </div>

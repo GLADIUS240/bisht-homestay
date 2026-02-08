@@ -8,6 +8,7 @@ import Amenities from './pages/Amenities'
 import Experiences from './pages/Experiences'
 import Navbar from './shared/components/Navbar'
 import Footer from './shared/components/Footer'
+import Reservation from './pages/Reservation'
 const App = () => {
   return (
     <>
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/amenities" element={<Amenities />} />
         <Route path="/experiences" element={<Experiences />} />
+        <Route path="/reservation" element={<Reservation />} />
       </Routes>
       <Footer></Footer>
     </>

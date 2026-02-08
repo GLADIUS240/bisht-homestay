@@ -3,8 +3,28 @@ import { MapPin } from 'lucide-react'
 import { PhoneCall } from 'lucide-react'
 import { Mail } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import feedbackStore from '../feedbackStore';
 
 const Contact = () => {
+  const navigate = useNavigate();
+  const SubmitFeedback = (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const feedback = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+    };
+    feedbackStore.add(feedback);
+    alert("Feedback submitted successfully!");
+    navigate("/");
+  }
+
+
   return (
     <div className='pt-16 text-black text-xl'>
       <section title='Contact Us Header' className=" relative bg-[url('./src/assets/contactUs_h1_image.jpg')] w-[100vw] flex justify-center items-center p-16 bg-cover bg-center bg-no-repeat">
@@ -73,9 +93,12 @@ const Contact = () => {
 
       {/* Email input form */}
       <div className='flex md:w-1/2 flex-col gap-8 items-center justify-center md:pr-[14vw]'>
-        <form className="w-full mx-auto flex flex-col gap-4 border border-black p-8 space-y-4">
+        <form 
+        onSubmit={(e) => SubmitFeedback(e)}
+        className="w-full mx-auto flex flex-col gap-4 border border-black p-8 space-y-4">
             <input
               type="text"
+              name='name'
               placeholder="Name"
               className="w-full border border-gray-500 px-4 py-3 text-gray-600 font-mono
                          focus:outline-none focus:border-black"
@@ -83,6 +106,7 @@ const Contact = () => {
 
             <input
               type="email"
+              name='email'
               placeholder="Email"
               className="w-full border border-gray-500 px-4 py-3 text-gray-600 font-mono
                          focus:outline-none focus:border-black"
@@ -90,6 +114,7 @@ const Contact = () => {
 
             <input
               type="tel"
+              name='phone'
               placeholder="Phone:"
               className="w-full border border-gray-500 px-4 py-3 text-gray-600 font-mono
                          focus:outline-none focus:border-black"
@@ -97,6 +122,7 @@ const Contact = () => {
 
             <input
               type="text"
+              name='subject'
               placeholder="Subject"
               className="w-full border border-gray-500 px-4 py-3 text-gray-600 font-mono
                          focus:outline-none focus:border-black"
@@ -104,6 +130,7 @@ const Contact = () => {
 
             <textarea
               rows="4"
+              name='message'
               placeholder="Message Optional"
               className="w-full border border-gray-500 px-4 py-3 text-gray-600 font-mono
                          focus:outline-none focus:border-black resize-none"
@@ -127,7 +154,7 @@ const Contact = () => {
     loading="lazy"
     allowFullScreen
     referrerPolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps?q=New%20Delhi&output=embed"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13891.438226006223!2d79.48709500000001!3d29.491294999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a0a43c20dfcf07%3A0x13fed2891c16e636!2sChhara%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1770479610134!5m2!1sen!2sin"
   />
 </div>
     </div>

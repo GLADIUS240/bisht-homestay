@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen ">
       {/* Hero Carousel Section */}
@@ -20,17 +22,19 @@ const Home = () => {
             Escape from the hustle and hassle of your everyday routine and come away to the Bisht Homestay, where a serene world awaits you. Throw off all your worries and slip into the scenic, relaxed atmosphere and be pampered and rejuvenated.
           </p>
           <button className="mt-8 px-8 py-3 cursor-pointer bg-none border-[#AE9364] border-2 text-brand hover:text-white font-light rounded-lg hover:bg-brand transition-all duration-300 hover:scale-105 opacity-100 translate-y-8 animate-slideUp"
-              style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
+          style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
+          onClick={() => navigate("/rooms")}
+          >
             Explore Rooms
           </button>
         </div>
       </section>
       <section className="py-20 px-6 flex justify-center bg-[#FAF7F3] lg:px-12">
-        <div  className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-['Cinzel'] text-black pb-6">
+        <div  className=" mx-auto text-center gap-4 flex flex-col px-4 lg:px-[14vw] md:px-6">
+          <h2 className="text-3xl md:text-4xl font-['Cinzel'] text-brand pb-6">
             Local Places for Exploration
           </h2>
-          <h3 className="text-lg md:text-xl text-black/80 max-w-2xl mx-auto">
+          <h3 className="text-lg md:text-xl text-black/80 mx-auto">
             All activities at Bisht Homestay
           </h3>
           <div className='grid lg:grid-cols-5 gap-4 md:grid-cols-2 sm:grid-cols-1 mt-8'>
@@ -67,7 +71,7 @@ const HeroCarousel = () => {
     {
       image: "./src/assets/hero-carausel-03.jpg",
       alt: "Comfortable homestay",
-      title: "Feel at Home",
+      title: "Feel like Home",
       subtitle: "Warm hospitality and cozy accommodations"
     },
     {
