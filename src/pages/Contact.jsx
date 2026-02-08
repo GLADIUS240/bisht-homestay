@@ -48,7 +48,7 @@ const Contact = () => {
     <div className='pt-16 text-black text-xl'>
       <section title='Contact Us Header' className=" relative bg-[url('./src/assets/contactUs_h1_image.jpg')] w-[100vw] flex justify-center items-center p-16 bg-cover bg-center bg-no-repeat">
         <div className="absolute  w-full inset-0 bg-black/75"></div>
-        <h1 className='md:text-6xl z-2 text-5xl text-white font-normal whitespace-nowrap mb-4'>Contact Us</h1>
+        <h1 className='md:text-6xl z-2 text-5xl text-white font-["Playfair"] font-normal whitespace-nowrap mb-4'>Contact Us</h1>
       </section>
       <section 
       title='Contact Us page' 

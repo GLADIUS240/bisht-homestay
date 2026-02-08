@@ -60,7 +60,7 @@ const Rooms = () => {
     <div className="min-h-screen pt-16 pb-12 bg-gray-50">
           {/* Header */}
        <section
-          title="Contact Us Header"
+          title="Our Rooms"
           className=" relative bg-[url('./src/assets/room1.jpg')] w-[100vw] flex justify-center items-center p-16 bg-cover bg-center bg-no-repeat"
         >
           <div className="absolute  w-full inset-0 bg-black/75"></div>

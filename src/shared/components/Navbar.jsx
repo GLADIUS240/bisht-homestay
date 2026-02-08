@@ -26,9 +26,9 @@ const Navbar = () => {
   return (
     <>
       <div
-        className="fixed top-0 left-0 w-full h-16 flex items-center px-4 sm:px-6 lg:px-32
-      justify-center text-brand bg-white text-center z-50 shadow-sm"
+        className="fixed top-0 left-0 w-full h-16 flex items-center px-4 sm:px-6 lg:px-32 text-brand bg-white z-50 shadow-sm gap-4"
       >
+        {/* Logo */}
         <NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
           <img
             src="./favicon.svg"
@@ -37,57 +37,57 @@ const Navbar = () => {
           />
         </NavLink>
 
-        <div className="flex items-center gap-4 justify-center">
-          {/* Desktop Navigation */}
-          <div
-            className="font-['Montserrat'] hidden lg:flex
-          items-center justify-center font-normal text-sm
-          gap-4 text-tracking-normal text-leading-none"
-          >
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `px-3 py-2 transition ${isActive ? "text-black" : "text-brand"}`
-              }
-            >
-              HOME
-            </NavLink>
-            <NavLink
-              to="/experiences"
-              className={({ isActive }) =>
-                `px-3 py-2 transition ${isActive ? "text-black" : "text-brand"}`
-              }
-            >
-              EXPERIENCES
-            </NavLink>
-            <NavLink
-              to="/rooms"
-              className={({ isActive }) =>
-                `px-3 py-2 transition ${isActive ? "text-black" : "text-brand"}`
-              }
-            >
-              ROOMS
-            </NavLink>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `px-3 py-2 transition ${isActive ? "text-black" : "text-brand"}`
-              }
-            >
-              ABOUT
-            </NavLink>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `px-3 py-2 text-nowrap transition ${isActive ? "text-black" : "text-brand"}`
-              }
-            >
-              CONTACT US
-            </NavLink>
-          </div>
+        {/* Spacer for visual balance */}
+        <div className="hidden lg:block w-40"></div>
 
-          {/* Desktop CTA Buttons */}
-          <div className="hidden lg:flex gap-2 items-center justify-center">
+        {/* Desktop Navigation Links - Center */}
+        <div
+          className="font-['Montserrat'] hidden lg:flex items-center justify-center font-normal text-sm gap-6 flex-1"
+        >
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `px-3 py-2 transition ${isActive ? "text-black" : "text-brand"}`
+            }
+          >
+            HOME
+          </NavLink>
+          <NavLink
+            to="/experiences"
+            className={({ isActive }) =>
+              `px-3 py-2 transition ${isActive ? "text-black" : "text-brand"}`
+            }
+          >
+            EXPERIENCES
+          </NavLink>
+          <NavLink
+            to="/rooms"
+            className={({ isActive }) =>
+              `px-3 py-2 transition ${isActive ? "text-black" : "text-brand"}`
+            }
+          >
+            ROOMS
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `px-3 py-2 transition ${isActive ? "text-black" : "text-brand"}`
+            }
+          >
+            ABOUT
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `px-3 py-2 text-nowrap transition ${isActive ? "text-black" : "text-brand"}`
+            }
+          >
+            CONTACT US
+          </NavLink>
+        </div>
+
+        {/* Desktop CTA Buttons - Right */}
+        <div className="hidden lg:flex gap-3 items-center">
             {isLoggedIn() ? (
               <>
                 {isAdmin() && (
@@ -100,7 +100,7 @@ const Navbar = () => {
                 )}
                 <button
                   onClick={handleLogout}
-                  className="py-2 px-4  w-fit bg-accent cursor-pointer text-nowrap hover:bg-brand text-white font-light"
+                  className="py-2 px-4 w-fit bg-accent cursor-pointer text-nowrap hover:bg-brand text-white font-light"
                 >
                   Logout
                 </button>
@@ -108,7 +108,7 @@ const Navbar = () => {
             ) : (
               <button
                 onClick={() => navigate("/login")}
-                className="py-2 px-4  w-fit bg-accent cursor-pointer text-nowrap hover:bg-brand text-white font-light"
+                className="py-2 px-4 w-fit bg-accent cursor-pointer text-nowrap hover:bg-brand text-white font-light"
               >
                 Login/Register
               </button>
@@ -120,28 +120,27 @@ const Navbar = () => {
               Make a Reservation
             </button>
           </div>
-        </div>
 
         {/* Hamburger Menu Button (Mobile) */}
         <button
           onClick={toggleMobileMenu}
-          className="lg:hidden relative w-10 h-10 z-50 flex items-center justify-center"
+          className="lg:hidden relative w-10 h-10 z-50 flex items-center justify-center ml-auto"
           aria-label="Toggle menu"
         >
-          <div className="w-6 h-5 relative flex flex-col justify-between">
+          <div className="w-6 h-5 relative flex flex-col justify-center">
             <span
-              className={`block w-full h-0.5 bg-brand transition-all duration-300 absolute top-0 ${
-                isMobileMenuOpen ? "rotate-45 top-2" : "top-0"
+              className={`block w-full h-0.5 bg-brand transition-all duration-300 ease-in-out absolute ${
+                isMobileMenuOpen ? "rotate-45 translate-y-0" : "translate-y-[-8px]"
               }`}
             ></span>
             <span
-              className={`block w-full h-0.5 bg-brand transition-all duration-300 absolute top-2 ${
-                isMobileMenuOpen ? "opacity-0" : "opacity-100"
+              className={`block w-full h-0.5 bg-brand transition-all duration-300 ease-in-out absolute ${
+                isMobileMenuOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
               }`}
             ></span>
             <span
-              className={`block w-full h-0.5 bg-brand transition-all duration-300 absolute top-4 ${
-                isMobileMenuOpen ? "-rotate-45 top-2" : "top-4"
+              className={`block w-full h-0.5 bg-brand transition-all duration-300 ease-in-out absolute ${
+                isMobileMenuOpen ? "-rotate-45 translate-y-0" : "translate-y-[8px]"
               }`}
             ></span>
           </div>

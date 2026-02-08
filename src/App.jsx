@@ -7,6 +7,7 @@ import Rooms from './pages/Rooms'
 import Experiences from './pages/Experiences'
 import Navbar from './shared/components/Navbar'
 import Footer from './shared/components/Footer'
+import ScrollToTop from './shared/components/ScrollToTop'
 import Reservation from './pages/Reservation'
 import Login from './pages/login'
 import Admin from './pages/Admin'
@@ -15,6 +16,7 @@ import { AuthProvider } from './context/AuthContext'
 const App = () => {
   return (
     <AuthProvider>
+      <ScrollToTop />
       <Navbar></Navbar>
       <Routes>
         <Route path='/login' element={<Login />} />
